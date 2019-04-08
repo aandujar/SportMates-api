@@ -70,10 +70,14 @@ app.get('/localidades', routes);
 app.get('/deportes', routes);
 
 app.get('/eventos', routes);
+app.get('/eventosCreados', routes);
 app.post('/crearEvento', routes);
+app.post('/inscripcionEvento', routes);
+app.delete('/eliminarEvento', routes);
 
 app.get('/login', routes);
 app.post('/registro', routes);
+app.put('/cambiarPassword', routes);
 
 
 
@@ -83,90 +87,3 @@ app.post('/registro', routes);
 
 
 
-
-
-
-/*
-
-app.post('/inscribirse', (request, response) => {
-    var idEvento = request.body.idEvento;
-    var idUsuario = request.body.idUsuario;
-    var email = request.body.email;
-
-    if (!isNaN(idEvento) && (!isNaN(idUsuario))) {
-        pool.query('INSERT INTO lineaevento SET idEvento=?,idUsuarioInscrito=?', [idEvento, idUsuario], (error, result) => {
-            if (error) throw error;
-            if (result.affectedRows > 0) {
-                pool.query('SELECT * FROM evento WHERE id = ?', idEvento, (error, result) => {
-                    if (error) throw error;
-                    var idUsuarioCreador = result[0].idUsuario;
-                    var localidad = result[0].localidad;
-                    var provincia = result[0].provincia;
-                    var fecha = result[0].fecha;
-                    var hora = result[0].hora;
-                    var deporte = result[0].deporte;
-                    var inscritos = result[0].usuariosActuales;
-                    if (result.length > 0) {
-                        var mailOptions = {
-                            from: 'correosportmates@gmail.com',
-                            to: email,
-                            subject: 'Inscripción a evento',
-                            text: 'Hola te informamos de que te has inscrito correctamente a un evento, te recordamos los datos, localidad: ' + localidad + ', provincia: ' + provincia + ', fecha: ' + fecha + ', hora: ' + hora + ', deporte: ' + deporte
-                        };
-                        transporter.sendMail(mailOptions, function (error, info) {
-                            if (error) throw error;
-                        });
-                        pool.query('SELECT correo FROM usuarios WHERE id = ?', idUsuarioCreador, (error, result) => {
-                            if (error) throw error;
-                            if (result.length > 0) {
-                                var mailOptions = {
-                                    from: 'correosportmates@gmail.com',
-                                    to: result[0].correo,
-                                    subject: 'Inscripción a evento',
-                                    text: 'Hola te informamos de de que un usuario se ha inscrito correctamente a tu evento, te recordamos los datos, localidad: ' + localidad + ', provincia: ' + provincia + ', fecha: ' + fecha + ', hora: ' + hora + ', deporte: ' + deporte + ', inscritos: ' + inscritos
-                                };
-                                transporter.sendMail(mailOptions, function (error, info) {
-                                    if (error) throw error;
-                                });
-                            }
-                        });
-                        pool.query('UPDATE evento SET usuariosActuales = usuariosActuales + 1 where id = ?', idEvento, (error, result) => {
-                            if (error) throw error;
-                        });
-
-                        response.status(200).json({ codigo: "200", mensaje: "Inscrito correctamente" });
-
-                    }
-                });
-
-            }
-
-        });
-    } else {
-        response.status(401).json({ codigo: "401", error: "Datos incorrectos" });
-    }
-});
-
-app.put('/cambiarPassword', (request, response) => {
-    var id = request.body.id;
-    var password = request.body.password;
-    if ((password.toString().length > 7) && (password.toString().length < 17)) {
-        bcrypt.hash(password, 12)
-            .then(function (passwordEncriptado) {
-                pool.query('UPDATE usuarios SET password = ? WHERE id = ?', [passwordEncriptado, id], (error, result) => {
-                    if (error) throw error;
-                    if (result.affectedRows > 0) {
-                        response.status(200).json({ codigo: "200", mensaje: "Password cambiado" });
-                    } else {
-                        response.status(400).json({ codigo: "400", mensaje: "Error al cambiar el password" });
-                    }
-                });
-            })
-            .catch(function (error) {
-                response.status(500).json({ codigo: 500, error: "Ha ocurrido un error" });
-                next();
-            });
-    }else{
-        response.status(401).json({ codigo: 500, error: "Datos incorrectos" });
-    }
-})*/

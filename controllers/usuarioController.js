@@ -80,3 +80,23 @@ exports.registro = function (request, response) {
         response.status(400).json({ codigo: 400, error: "Datos incorrectos" });
     }
 };
+
+exports.cambiarPassword = function (request, response) {
+    var id = request.body.id;
+    var password = request.body.password;
+    if ((password.toString().length > 7) && (password.toString().length < 17)) {
+        bcrypt.hash(password, 12)
+            .then(function (passwordEncriptado) {
+                Usuario.findByIdAndUpdate({ _id: id }, { $set: { "password": passwordEncriptado}}, function (error, result) {
+                if (error) throw error;
+                    response.status(200).json({ codigo: "200", mensaje: "Password cambiado" });
+                });
+            })
+            .catch(function (error) {
+                response.status(500).json({ codigo: 500, error: "Ha ocurrido un error" });
+                next();
+            });
+    }else{
+        response.status(401).json({ codigo: 500, error: "Datos incorrectos" });
+    }
+};

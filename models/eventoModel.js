@@ -2,7 +2,7 @@ var mongoose =  require('mongoose');
 var Schema = mongoose.Schema;
 var eventoSchema = Schema({
     id: String,
-    idUsuario: String,
+    usuarioCreador: Array,
     localidad: String,
     provincia: String,
     fecha: String,
