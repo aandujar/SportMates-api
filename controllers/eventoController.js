@@ -42,7 +42,6 @@ exports.getEventos = function (request, response) {
                         }
                     }
                 });
-                console.log(eventosValidos);
                 response.status(200).json({ codigo: "200", resultado: eventosValidos });
             } else {
                 response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
@@ -71,7 +70,6 @@ exports.getEventos = function (request, response) {
                         }
                     }
                 });
-                console.log(eventosValidos);
                 response.status(200).json({ codigo: "200", resultado: eventosValidos });
             } else {
                 response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
@@ -100,7 +98,6 @@ exports.getEventos = function (request, response) {
                         }
                     }
                 });
-                console.log(eventosValidos);
                 response.status(200).json({ codigo: "200", resultado: eventosValidos });
             } else {
                 response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
@@ -129,7 +126,6 @@ exports.getEventos = function (request, response) {
                         }
                     }
                 });
-                console.log(eventosValidos);
                 response.status(200).json({ codigo: "200", resultado: eventosValidos });
             } else {
                 response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
@@ -158,7 +154,6 @@ exports.getEventos = function (request, response) {
                         }
                     }
                 });
-                console.log(eventosValidos);
                 response.status(200).json({ codigo: "200", resultado: eventosValidos });
             } else {
                 response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
