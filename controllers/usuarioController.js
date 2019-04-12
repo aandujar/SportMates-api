@@ -1,14 +1,14 @@
 var Usuario = require('../models/usuarioModel');
 
 var bcrypt = require('bcrypt');
-var nodemailer = require('nodemailer');
+/*var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'correosportmates@gmail.com',
         pass: 'Sportmates92*'
     },
-});
+});*/
 
 exports.login = function (request, response) {
     var usuario = request.query.usuario;
@@ -52,7 +52,7 @@ exports.registro = function (request, response) {
                                         if (error) throw error;
                                         var id = result._id;
                                         if (result != {}) {
-                                            var mailOptions = {
+                                            /*var mailOptions = {
                                                 from: 'correosportmates@gmail.com',
                                                 to: email,
                                                 subject: 'Bienvenido a SportMates',
@@ -60,8 +60,8 @@ exports.registro = function (request, response) {
                                             };
                                             transporter.sendMail(mailOptions, function (error, info) {
                                                 if (error) throw error;
-                                            });
-                                            response.status(200).json({ codigo: 200, id: id, usuario: usuario, correo: email });
+                                            });*/
+                                            response.status(200).json({ codigo: 200, _id: id, usuario: usuario, correo: email });
                                         } else {
                                             response.status(500).json({ codigo: 500, error: "Ha ocurrido un error" });
                                         }

@@ -15,9 +15,11 @@ router.get('/deportes',deportes.getDeportes);
 
 router.get('/eventos',eventos.getEventos);
 router.get('/eventosCreados',eventos.eventosCreados);
+router.get('/eventosInscrito',eventos.eventosInscrito);
 router.post('/crearEvento',eventos.crearEvento);
 router.post('/inscripcionEvento',eventos.inscribirseEvento);
 router.delete('/eliminarEvento',eventos.eliminarEvento);
+router.delete('/abandonarEvento',eventos.abandonarEvento);
 
 router.get('/login',usuarios.login);
 router.post('/registro',usuarios.registro);
