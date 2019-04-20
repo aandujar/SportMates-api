@@ -24,11 +24,11 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito=true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
@@ -38,13 +38,12 @@ exports.getEventos = function (request, response) {
                                             eventosValidos.push(ev);
                                         }                                  
                                     }
-                                }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
             }
         });
     } else if ((provincia) && (localidad)) {
@@ -52,11 +51,11 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito=true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
@@ -66,13 +65,12 @@ exports.getEventos = function (request, response) {
                                             eventosValidos.push(ev);
                                         }                                  
                                     }
-                                }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
             }
         });
     } else if ((provincia) && (deporte)) {
@@ -80,11 +78,11 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito=true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
@@ -93,14 +91,13 @@ exports.getEventos = function (request, response) {
                                         if(condicionInscrito==true){
                                             eventosValidos.push(ev);
                                         }                                  
-                                    }
                                 }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo:400, error: "No hay eventos disponibles" });
             }
         });
     } else if (provincia) {
@@ -108,11 +105,11 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito = true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
@@ -121,14 +118,13 @@ exports.getEventos = function (request, response) {
                                         if(condicionInscrito==true){
                                             eventosValidos.push(ev);
                                         }                                  
-                                    }
                                 }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
             }
         });
     } else if (deporte) {
@@ -136,11 +132,11 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito=true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
@@ -150,13 +146,12 @@ exports.getEventos = function (request, response) {
                                             eventosValidos.push(ev);
                                         }                                  
                                     }
-                                }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
             }
         });
     } else {
@@ -164,27 +159,26 @@ exports.getEventos = function (request, response) {
             if (error) throw error;
             if (result.length > 0) {
                 result.map(function(ev){
+                    condicionInscrito = true;
                     var trocearFecha = ev.fecha.split("-");
                     if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
                         if(ev.usuarioCreador[0].id!=id){
                                 if(ev.usuariosActuales<ev.usuariosMaximos){
-                                    if(ev.usuariosActuales<ev.usuariosMaximos){
                                         ev.usuariosInscritos.map(function(user){
                                             if(user.id==id){
                                                 condicionInscrito = false;
                                             }
-                                        })
+                                        });
                                         if(condicionInscrito==true){
                                             eventosValidos.push(ev);
-                                        }                                  
-                                    }
+                                        }                          
                                 }
                         }
                     }
                 });
-                response.status(200).json({ codigo: "200", resultado: eventosValidos });
+                response.status(200).json({ codigo: 200, resultado: eventosValidos });
             } else {
-                response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+                response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
             }
         });
     }
@@ -205,9 +199,9 @@ exports.eventosCreados = function (request, response) {
                         eventosValidos.push(ev);
                 }
             });
-            response.status(200).json({ codigo: "200", resultado: eventosValidos });
+            response.status(200).json({ codigo: 200, resultado: eventosValidos });
         } else {
-            response.status(400).json({ codigo: 500, error: "No hay eventos disponibles" });
+            response.status(400).json({ codigo: 400, error: "No hay eventos disponibles" });
         }
     });
 }
@@ -236,11 +230,6 @@ exports.eventosInscrito = function (request, response) {
 
 exports.eliminarEvento = function (request, response) {
     var id = request.query.id;
-    var idUsuario = request.query.idUsuario; 
-    var hoy = new Date();
-    var mes = parseInt(hoy.getMonth());
-    mes++;
-    var eventosValidos = [];
     /*Evento.find({_id:id},function (error, result) {
         result.map(function(ev){
             ev.usuariosInscritos.map(function(user){
@@ -256,20 +245,7 @@ exports.eliminarEvento = function (request, response) {
             });
         });*/
     Evento.findByIdAndDelete({_id:id}, function(error,result){
-        Evento.find({},function (error, result) {
-            if (error) throw error;
-            if (result.length > 0) {
-                result.map(function(ev){
-                    var trocearFecha = ev.fecha.split("-");
-                    if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
-                        if(ev.usuarioCreador[0].id==idUsuario){
-                            eventosValidos.push(ev);
-                         }
-                    }
-                });
-                response.status(200).json({ codigo: 200, resultado: eventosValidos });
-            } 
-        });
+        response.status(200).json({ codigo: 200, resultado: "Borrado con éxito" });
    // });
 });
 }
@@ -277,24 +253,9 @@ exports.eliminarEvento = function (request, response) {
 exports.abandonarEvento = function (request, response) {
     var id = request.query.id;
     var idUsuario = request.query.idUsuario; 
-    var hoy = new Date();
-    var mes = parseInt(hoy.getMonth());
-    mes++;
-    var eventosValidos = [];
     Evento.updateOne({"_id":id},{$pull:{"usuariosInscritos":{"id":idUsuario}}}, function(error,result){
         Evento.findByIdAndUpdate({ _id: id }, { $inc: { "usuariosActuales": -1}}, function (error, result) {
-        Evento.find({"usuariosInscritos.id":idUsuario},function (error, result) {
-            if (error) throw error;
-            if (result.length > 0) {
-                result.map(function(ev){
-                    var trocearFecha = ev.fecha.split("-");
-                    if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
-                            eventosValidos.push(ev);
-                    }
-                });
-                response.status(200).json({ codigo: 200, resultado: eventosValidos });
-            } 
-        });
+            response.status(200).json({ codigo: 200, resultado: "Borrado correcto" });
     });
 });
 }
@@ -362,18 +323,10 @@ exports.inscribirseEvento = function (request, response) {
     var idEvento = request.body.idEvento;
     var idUsuario = request.body.idUsuario;
     var email = request.body.email;
-    var eventosValidos = [];
-    var hoy = new Date()
-    var mes = parseInt(hoy.getMonth());
-    var condicionInscrito = true;
-    mes++;
     var user = { id: idUsuario, email: email};
         Evento.findByIdAndUpdate({ _id: idEvento }, { $push: { "usuariosInscritos": user}}, function (error, result) {
             if (error) throw error;
             Evento.findByIdAndUpdate({ _id: idEvento }, { $inc: { "usuariosActuales": 1}}, function (error, result) {
-                Evento.find({_id:idEvento},function (error, result) {
-                    if (error) throw error;
-                    if (result.length > 0){
                         /*var mailOptions = {
                             from: 'correosportmates@gmail.com',
                             to: email,
@@ -392,33 +345,7 @@ exports.inscribirseEvento = function (request, response) {
                         transporter.sendMail(mailOptions, function (error, info) {
                             if (error) throw error;
                         });*/
-                        /*Evento.find({},function (error, result) {
-                            if (error) throw error;
-                            if (result.length > 0) {
-                                result.map(function(ev){
-                                    var trocearFecha = ev.fecha.split("-");
-                                    if (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] >= mes) && (trocearFecha[0] > hoy.getDate())) || (((trocearFecha[2] >= hoy.getFullYear()) && (trocearFecha[1] > mes))) || (trocearFecha[2] > hoy.getFullYear())) {
-                                        if(ev.usuarioCreador[0].id!=idUsuario){
-                                            if(ev.usuariosActuales<ev.usuariosMaximos){
-                                                        ev.usuariosInscritos.map(function(user){
-                                                            if(user.id==idUsuario){
-                                                                condicionInscrito = false;
-                                                            }
-                                                        })
-                                                        if(condicionInscrito==true){
-                                                            eventosValidos.push(ev);
-                                                        }                                  
-                                                    }
-                                        }
-                                    }
-                                });
-                                
-                            } 
-                        });*/
-                        response.status(200).json({ codigo: "200", resultado: eventosValidos });
-                    }
-                    
-                    });
+                        response.status(200).json({ codigo: 200, resultado: "Inscrito correctamente" });
             });
         });
 };
